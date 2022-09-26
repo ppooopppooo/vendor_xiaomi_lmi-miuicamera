@@ -1,0 +1,2 @@
+allow cameraserver vendor_file:file { getattr map open read execute };
+allow cameraserver init:unix_stream_socket { connectto };
