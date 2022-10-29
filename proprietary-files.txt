@@ -16,3 +16,5 @@ vendor/lib64/libswregistrationalgo.so
 vendor/lib64/hw/android.hardware.camera.provider@2.4-impl.so
 vendor/etc/init/android.hardware.camera.provider@2.4-service_64.rc
 product/etc/device_features/munch.xml
+system/lib64/android.hardware.camera.common@1.0.so
+system/lib64/libcameraservice.so|69639b4d2eaa00e27388221299322803a4bf3e5b
