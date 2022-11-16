@@ -1,0 +1,7 @@
+allow platform_app vendor_audio_prop:file { read };
+
+# Allow MIUI camera app to read no. of cpus
+allow platform_app cgroup:file r_file_perms;
+
+# Allow Miui Camera to find multi display service
+allow platform_app miui_multi_display:service_manager find;
