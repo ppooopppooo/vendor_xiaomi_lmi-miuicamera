@@ -8,7 +8,7 @@
 
 set -e
 
-DEVICE=munch-miuicamera
+DEVICE=lmi-miuicamera
 VENDOR=xiaomi
 
 # Load extract_utils and do some sanity checks

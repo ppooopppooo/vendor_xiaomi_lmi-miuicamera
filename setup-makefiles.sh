@@ -5,7 +5,7 @@
 
 set -e
 
-DEVICE=munch-miuicamera
+DEVICE=lmi-miuicamera
 VENDOR=xiaomi
 
 # Load extract_utils and do some sanity checks
@@ -27,7 +27,7 @@ setup_vendor "${DEVICE}" "${VENDOR}" "${ANDROID_ROOT}"
 # Warning headers and guards
 write_headers
 
-sed -i "s|munch-miuicamera|munch|g" "${ANDROIDMK}"
+sed -i "s|lmi-miuicamera|lmi|g" "${ANDROIDMK}"
 
 write_makefiles "${MY_DIR}/proprietary-files.txt" true
 
