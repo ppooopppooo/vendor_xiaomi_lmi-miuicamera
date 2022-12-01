@@ -1,0 +1,66 @@
+type miuicamera_app, domain;
+app_domain(miuicamera_app)
+
+get_prop(miuicamera_app, vendor_audio_prop)
+get_prop(miuicamera_app, build_prop)
+get_prop(miuicamera_app, qemu_hw_prop)
+
+# Allow MIUI camera app to read no. of cpus
+allow miuicamera_app cgroup:file r_file_perms;
+
+# Allow Miui Camera to find multi display service
+allow miuicamera_app {
+    miui_multi_display
+    surfaceflinger_service
+    audio_service
+    audioserver_service
+    mediaserver_service
+    activity_task_service
+    gpu_service
+    activity_service
+    game_service
+    radio_service
+    trust_service
+    shortcut_service
+    bluetooth_manager_service
+    device_policy_service
+    uimode_service
+    thermal_service
+    registry_service
+    telecom_service
+    netstats_service
+    cameraserver_service
+    country_detector_service
+    device_state_service
+    sensorservice_service
+    content_capture_service
+    hint_service
+    autofill_service
+    mediaextractor_service
+    mediametrics_service
+    media_session_service
+    memtrackproxy_service
+    location_service
+    clipboard_service
+}:service_manager find;
+
+allow miuicamera_app {
+    hal_camerapostproc_xiaomi_hwservice
+    hal_misys_hwservice
+}:hwservice_manager find;
+
+binder_call(miuicamera_app, hal_misys_default)
+
+allow miuicamera_app dnsproxyd_socket:sock_file write;
+allow miuicamera_app netd:unix_stream_socket connectto;
+allow miuicamera_app zygote:unix_stream_socket getopt;
+allow miuicamera_app miuicamera_app:tcp_socket create_socket_perms;
+allow miuicamera_app proc_stat:file rw_file_perms;
+allow miuicamera_app vendor_sysfs_kgsl:file { read open getattr };
+allow miuicamera_app app_data_file:file { execute };
+allow miuicamera_app fwmarkd_socket:sock_file { write };
+allow miuicamera_app port:tcp_socket { name_connect name_bind };
+
+userdebug_or_eng(`
+  dontaudit miuicamera_app default_prop:file r_file_perms;
+')
