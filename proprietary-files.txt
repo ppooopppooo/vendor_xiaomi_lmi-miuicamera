@@ -1,6 +1,7 @@
 # MIUI Camera
 product/etc/device_features/lmi.xml
 product/etc/device_features/lmipro.xml
+system/etc/permissions/privapp-permissions-miuicamera.xml|9c7991ca78ca0f2487c2d25d63c0517dd8145135
 system/lib64/libarcsoft_single_chart_calibration.so
 system/lib64/libcamera_algoup_jni.xiaomi.so
 system/lib64/libcamera_mianode_jni.xiaomi.so
