@@ -6,4 +6,14 @@ LOCAL_PATH := $(call my-dir)
 
 ifeq ($(TARGET_DEVICE),lmi)
 
+MIUICAMERA_LIBS := libcamera_algoup_jni.xiaomi.so libcamera_mianode_jni.xiaomi.so
+MIUICAMERA_SYMLINKS := $(addprefix $(TARGET_OUT_APPS_PRIVILEGED)/MiuiCamera/lib/arm64/,$(notdir $(MIUICAMERA_LIBS)))
+$(MIUICAMERA_SYMLINKS): $(LOCAL_INSTALLED_MODULE)
+	@echo "MIUICAMERA lib link: $@"
+	@mkdir -p $(dir $@)
+	@rm -rf $@
+	$(hide) ln -sf /system_ext/lib64/$(notdir $@) $@
+
+ALL_DEFAULT_INSTALLED_MODULES += $(MIUICAMERA_SYMLINKS)
+
 endif
