@@ -1,6 +1,7 @@
 # MIUI Camera
 product/etc/device_features/lmi.xml
 product/etc/device_features/lmipro.xml
+system/etc/public.libraries-xiaomi.txt
 system/lib64/libarcsoft_single_chart_calibration.so
 system/lib64/libcamera_algoup_jni.xiaomi.so
 system/lib64/libcamera_mianode_jni.xiaomi.so
